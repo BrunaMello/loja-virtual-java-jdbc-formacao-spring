@@ -8,10 +8,10 @@ public class TestaListagem {
         Connection con = connectionFactory.recuperarConexao();
 
         //criando query
-        Statement stm = con.createStatement();
+        PreparedStatement stm = con.prepareStatement("SELECT ID, NOME, DESCRICAO FROM PRODUTOS");
 
         //gerando o select (em formato boolean)
-        stm.execute("SELECT ID, NOME, DESCRICAO FROM PRODUTOS");
+        stm.execute();
 
         //transformando o boolean em lista
         ResultSet rst = stm.getResultSet();

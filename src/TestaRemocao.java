@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -9,8 +10,9 @@ public class TestaRemocao {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         Connection con = connectionFactory.recuperarConexao();
 
-        Statement stm = con.createStatement();
-        stm.execute("DELETE FROM PRODUTOS WHERE ID > 3");
+        PreparedStatement stm = con.prepareStatement("DELETE FROM PRODUTOS WHERE ID > ?");
+        stm.setInt(1, 2);
+        stm.execute();
 
         //contar quantas linhas foram modificadas
         Integer linhasmodificadas = stm.getUpdateCount();
