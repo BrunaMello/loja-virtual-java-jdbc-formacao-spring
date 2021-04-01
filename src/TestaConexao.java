@@ -9,7 +9,6 @@ public class TestaConexao {
 
         con.close();
 
-
     }
 
 }
