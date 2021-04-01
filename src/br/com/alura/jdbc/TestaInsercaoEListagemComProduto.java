@@ -1,6 +1,8 @@
+package br.com.alura.jdbc;
+
 import java.sql.*;
 
-public class TestaInsercaoComParametro {
+public class TestaInsercaoEListagemComProduto {
 
     public static void main(String[] args) throws SQLException {
 
