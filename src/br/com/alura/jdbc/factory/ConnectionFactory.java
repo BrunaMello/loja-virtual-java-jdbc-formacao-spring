@@ -1,4 +1,4 @@
-package br.com.alura.jdbc;
+package br.com.alura.jdbc.factory;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
@@ -24,8 +24,12 @@ public class ConnectionFactory {
         this.dataSource = comboPooledDataSource;
     }
 
-    public Connection recuperarConexao() throws SQLException {
+    public Connection recuperarConexao() {
         //chamando a conexao do construtor acima
-        return this.dataSource.getConnection();
+        try {
+            return this.dataSource.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     };
 }
